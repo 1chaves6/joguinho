@@ -3,30 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Projeto Web</title>
-    <!-- Conectando o arquivo CSS -->
+    <title>EcoCidade - Limpeza Mundo Aberto</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Bem-vindo ao Meu Site</h1>
-        <p>Estrutura inicial com HTML, CSS e JavaScript.</p>
-    </header>
+    <div class="hud-top">
+        <div class="stat-box">💰 Moedas: <strong id="coins">0</strong></div>
+        <div class="stat-box">🎒 Mochila: <strong id="bag">0</strong>/<span id="max-bag">5</span></div>
+        <div class="stat-box">🌱 Lixos na Cidade: <strong id="trash-count">0</strong></div>
+        <button id="btn-shop" class="shop-btn">🛒 Loja de Power-Ups</button>
+    </div>
 
-    <main>
-        <section class="card">
-            <h2>Teste de Interatividade</h2>
-            <p id="mensagem">Clique no botão abaixo para interagir com o JavaScript.</p>
-            <button id="btn-acao">Clique Aqui</button>
-        </section>
-    </main>
+    <div id="prompt-action" class="action-prompt hidden">Pressione [E]</div>
 
-    <footer>
-        <p>&copy; 2026 - Meu Projeto</p>
-    </footer>
+    <canvas id="gameCanvas"></canvas>
 
-    <!-- Conectando o arquivo JavaScript -->
+    <div class="hud-bottom">
+        <span><strong>WASD</strong>: Andar</span>
+        <span><strong>E</strong>: Coletar lixo / Jogar na lixeira (🗑️)</span>
+    </div>
+
+    <!-- Modal da Loja de Power-Ups -->
+    <div id="shop-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚡ Loja de Power-Ups</h2>
+                <button id="close-shop" class="close-btn">✖</button>
+            </div>
+            <p class="shop-subtitle">Use suas moedas para limpar a cidade mais rápido!</p>
+            
+            <div class="powerup-list">
+                <div class="powerup-card">
+                    <div class="powerup-icon">👟</div>
+                    <div class="powerup-info">
+                        <h3>Tênis Turbo (Nível <span id="lvl-speed">1</span>)</h3>
+                        <p>Aumenta sua velocidade de caminhada.</p>
+                    </div>
+                    <button id="buy-speed" class="buy-btn">💰 30</button>
+                </div>
+
+                <div class="powerup-card">
+                    <div class="powerup-icon">🎒</div>
+                    <div class="powerup-info">
+                        <h3>Mochila XL (Nível <span id="lvl-bag">1</span>)</h3>
+                        <p>Carregue +3 lixos por viagem.</p>
+                    </div>
+                    <button id="buy-bag" class="buy-btn">💰 40</button>
+                </div>
+
+                <div class="powerup-card">
+                    <div class="powerup-icon">🧲</div>
+                    <div class="powerup-info">
+                        <h3>Ímã Ecológico (Nível <span id="lvl-magnet">0</span>)</h3>
+                        <p>Puxa lixos próximos automaticamente.</p>
+                    </div>
+                    <button id="buy-magnet" class="buy-btn">💰 60</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
